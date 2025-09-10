@@ -1,7 +1,7 @@
 # Tokopedia Load Testing with JMeter
 
 <div align="center">
-<img src="https://d2ksis2z2ke2jq.cloudfront.net/uploads/2020/06/Tokopedia-Logo-Vector-VisualLogo-e1593035543226.png" alt="Tokopedia Banner"/>
+<img src="https://d2ksis2z2ke2jq.cloudfront.net/uploads/2020/06/Tokopedia-Logo-Vector-VisualLogo-e1593035543226.png" width="80%" alt="Tokopedia Banner"/>
 </div>
 
 This repository contains comprehensive performance and load testing scripts for the Tokopedia website using Apache JMeter.
