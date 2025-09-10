@@ -11,10 +11,12 @@ jmeter-server.log
 
 # System and IDE Files
 .DS_Store
+
 .vscode/
 .idea/
 *.swp
 *.swo
+
 *~
 
 # Backup Files
