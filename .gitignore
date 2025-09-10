@@ -1,0 +1,65 @@
+# JMeter Results and Logs
+results/logs/*.jtl
+results/logs/*.log
+results/reports/*/
+*.jtl
+*.log
+
+# JMeter Temporary Files
+jmeter.log
+jmeter-server.log
+
+# System and IDE Files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Backup Files
+*.bak
+*.backup
+
+# Temporary Files
+/tmp/
+temp/
+*.tmp
+
+# OS Generated Files
+Thumbs.db
+ehthumbs.db
+
+# Java Compiled Files
+*.class
+*.jar
+*.war
+
+# Maven/Gradle
+target/
+build/
+.gradle/
+
+# Node.js (if any supporting tools)
+node_modules/
+npm-debug.log*
+
+# Environment Files
+.env
+.env.local
+.env.*.local
+
+# Sensitive Data
+*password*
+*secret*
+*key*
+config/credentials/
+
+# Large Files
+*.zip
+*.tar.gz
+*.rar
+
+# But keep the directory structure
+!results/logs/.gitkeep
+!results/reports/.gitkeep
