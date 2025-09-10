@@ -1,0 +1,31 @@
+# JMeter Results and Reports
+reports/*.jtl
+reports/*.html
+reports/*.csv
+reports/*.log
+reports/temp/*
+
+# JMeter temporary files
+*.tmp
+jmeter.log*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment specific files
+*.local
+.env
+
+# Backup files
+*.bak
+*~
+
+# Test data with sensitive information
+data/sensitive/
