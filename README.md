@@ -11,19 +11,6 @@ This repository contains JMeter test plans and configurations for performance te
 - Category browsing performance
 - API endpoint testing
 
-## Repository Structure
-
-```
-├── test-plans/           # JMeter test plan files (.jmx)
-│   ├── api/             # API-specific test plans
-│   └── ui/              # UI/Web interface test plans
-├── config/              # Configuration files for different environments
-├── data/                # Test data files (CSV, JSON)
-├── reports/             # Generated test reports and results
-├── scripts/             # Utility scripts for running tests
-└── docs/                # Additional documentation
-```
-
 ## Prerequisites
 
 - Apache JMeter 5.5 or higher
