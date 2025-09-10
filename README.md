@@ -1,132 +1,106 @@
 # Tokopedia Load Testing with JMeter
 
-A comprehensive performance testing suite for Tokopedia e-commerce platform using Apache JMeter.
+This repository contains comprehensive performance and load testing scripts for the Tokopedia website using Apache JMeter.
 
-## Overview
-
-This repository contains JMeter test plans and configurations for performance testing various aspects of the Tokopedia website including:
-- Homepage load testing
-- Search functionality performance
-- Product page response times
-- Category browsing performance
-- API endpoint testing
-
-## Repository Structure
+## Project Structure
 
 ```
-├── test-plans/           # JMeter test plan files (.jmx)
-│   ├── api/             # API-specific test plans
-│   └── ui/              # UI/Web interface test plans
-├── config/              # Configuration files for different environments
-├── data/                # Test data files (CSV, JSON)
-├── reports/             # Generated test reports and results
-├── scripts/             # Utility scripts for running tests
-└── docs/                # Additional documentation
+├── test-plans/          # JMeter test plan files (.jmx)
+│   ├── baseline/        # Normal load testing scenarios
+│   ├── stress/          # High load stress testing
+│   ├── spike/           # Sudden load spike testing
+│   ├── endurance/       # Long duration testing
+│   └── api/            # API endpoint testing
+├── test-data/          # Test data files (CSV, JSON)
+│   ├── users/          # User credentials and profiles
+│   ├── products/       # Product data for testing
+│   └── search-terms/   # Search keywords and parameters
+├── config/             # Configuration files
+│   ├── environments/   # Environment-specific settings
+│   └── properties/     # JMeter properties files
+├── results/            # Test execution results
+│   ├── reports/        # HTML reports and dashboards
+│   └── logs/          # JMeter execution logs
+├── scripts/            # Utility and analysis scripts
+│   ├── utilities/      # Helper scripts for test execution
+│   └── analysis/       # Result analysis scripts
+└── docs/              # Documentation and guides
 ```
 
 ## Prerequisites
 
-- Apache JMeter 5.5 or higher
 - Java 8 or higher
-- Basic understanding of performance testing concepts
+- Apache JMeter 5.0 or higher
+- Internet connection for testing Tokopedia website
 
 ## Quick Start
 
-1. **Install JMeter**
-   ```bash
-   # Download from https://jmeter.apache.org/download_jmeter.cgi
-   # Or using package manager (macOS)
-   brew install jmeter
-   ```
+1. Install Apache JMeter from [https://jmeter.apache.org/](https://jmeter.apache.org/)
+2. Clone this repository
+3. Navigate to the test-plans directory
+4. Open any .jmx file with JMeter GUI or run via command line
 
-2. **Clone the repository**
-   ```bash
-   git clone https://github.com/fdhliakbar/tokopedia-load-test.git
-   cd tokopedia-load-test
-   ```
+## Test Scenarios
 
-3. **Run a basic test**
-   ```bash
-   # Run homepage load test
-   jmeter -n -t test-plans/ui/tokopedia-homepage-test.jmx -l reports/homepage-results.jtl
-   ```
+### 1. Baseline Performance Testing
+- Normal user load simulation
+- Response time validation
+- Throughput measurement
 
-## Test Plans
+### 2. Stress Testing
+- High concurrent user load
+- System breaking point identification
+- Resource utilization monitoring
 
-### UI Test Plans
-- `tokopedia-homepage-test.jmx` - Homepage performance testing
-- `tokopedia-search-test.jmx` - Search functionality testing
-- `tokopedia-product-test.jmx` - Product page performance testing
-- `tokopedia-category-test.jmx` - Category browsing performance
+### 3. Spike Testing
+- Sudden traffic increase simulation
+- System recovery validation
+- Auto-scaling behavior testing
 
-### API Test Plans
-- `tokopedia-api-search.jmx` - Search API performance testing
-- `tokopedia-api-product.jmx` - Product API performance testing
+### 4. Endurance Testing
+- Extended duration load testing
+- Memory leak detection
+- Performance degradation analysis
 
-## Configuration
-
-Configuration files in the `config/` directory allow you to customize test parameters:
-- `environments.properties` - Environment-specific settings
-- `user-config.properties` - User simulation parameters
-- `load-config.properties` - Load testing configuration
-
-## Test Data
-
-The `data/` directory contains:
-- `search-terms.csv` - Sample search terms for testing
-- `product-ids.csv` - Sample product IDs
-- `user-agents.csv` - Various user agent strings
+### 5. API Testing
+- Backend service performance
+- Database query optimization
+- Microservice response times
 
 ## Running Tests
 
-### Command Line Execution
+### GUI Mode (Development)
 ```bash
-# Basic test execution
-jmeter -n -t test-plans/ui/tokopedia-homepage-test.jmx -l reports/results.jtl
-
-# Test with custom properties
-jmeter -n -t test-plans/ui/tokopedia-homepage-test.jmx -l reports/results.jtl -Jusers=50 -Jrampup=300
-
-# Generate HTML report
-jmeter -g reports/results.jtl -o reports/html-report/
+jmeter -t test-plans/baseline/tokopedia-homepage-baseline.jmx
 ```
 
-### Using Scripts
+### Command Line Mode (CI/CD)
 ```bash
-# Run all UI tests
-./scripts/run-ui-tests.sh
-
-# Run specific test with environment
-./scripts/run-test.sh test-plans/ui/tokopedia-homepage-test.jmx production
+jmeter -n -t test-plans/baseline/tokopedia-homepage-baseline.jmx -l results/logs/homepage-test.jtl -e -o results/reports/homepage-report/
 ```
 
-## Test Results and Reporting
+## Test Data
 
-Test results are stored in the `reports/` directory:
-- `.jtl` files contain raw test results
-- HTML reports provide detailed analysis
-- CSV files for data analysis in external tools
+Test data files are provided in CSV format for easy parameterization:
+- User credentials for login testing
+- Product IDs for detail page testing
+- Search terms for search functionality testing
 
-## Best Practices
+## Reporting
 
-1. **Test Environment**: Always test against appropriate environments (staging/pre-production)
-2. **Rate Limiting**: Respect Tokopedia's rate limits and terms of service
-3. **Data Privacy**: Never use real customer data in tests
-4. **Monitoring**: Monitor system resources during test execution
-5. **Baseline**: Establish baseline performance metrics before optimization
+JMeter generates comprehensive HTML reports including:
+- Response time graphs
+- Throughput charts
+- Error rate analysis
+- Performance metrics summary
 
 ## Contributing
 
 1. Fork the repository
 2. Create a feature branch
-3. Add your test plans with proper documentation
-4. Test your changes
-5. Submit a pull request
-
-## Disclaimer
-
-This repository is for educational and testing purposes only. Ensure you have proper authorization before conducting performance tests against any website. Always follow ethical testing practices and respect website terms of service.
+3. Add your test scenarios
+4. Submit a pull request
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
